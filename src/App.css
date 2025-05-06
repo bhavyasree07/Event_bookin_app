@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.app-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+}
+
+.welcome-container {
+  font-size: 1.5em;
+  margin: 20px 0;
+}
+
+.welcome-container a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.welcome-container a:hover {
+  text-decoration: underline;
+}
