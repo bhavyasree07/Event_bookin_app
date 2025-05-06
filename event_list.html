@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: white;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .event-title {
+            font-weight: bold;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .event-date, .event-location, .event-category {
+            color: #666;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Upcoming Events</h2>
+    <ul id="event-list">
+        </ul>
+
+    <script>
+        fetch('http://localhost:5000/events')
+            .then(response => response.json())
+            .then(events => {
+                const eventListUl = document.getElementById('event-list');
+                events.forEach(event => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <a href="/events/<span class="math-inline">\{event\.\_id\}" class\="event\-title"\></span>{event.title}</a><br>
+                        <span class="event-date">Date: ${new Date(event.date).toLocaleDateString()}</span><br>
+                        <span class="event-location">Location: ${event.location}</span><br>
+                        <span class="event-category">Category: ${event.category}</span>
+                    `;
+                    eventListUl.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching events:', error);
+                const eventListUl = document.getElementById('event-list');
+                eventListUl.innerHTML = '<p>Error loading events.</p>';
+            });
+    </script>
+</body>
+</html>
