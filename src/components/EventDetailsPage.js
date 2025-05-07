@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import styles from './EventDetailsPage.css'; // Changed import
+import './EventDetailsPage.css'; // Direct import
 
 function EventDetailsPage() {
   const { eventId } = useParams();
@@ -36,18 +36,18 @@ function EventDetailsPage() {
   }
 
   return (
-    <div className={styles.eventDetailsContainer}> {/* Added className */}
-      <div className={styles.eventDetailsWrapper}> {/* Added className */}
+    <div className="event-details-container">
+      <div className="event-details-wrapper">
         <h1>{eventDetails.title}</h1>
-        <div className={styles.eventInfo}> {/* Added className */}
-          <p className={styles.infoItem}><strong>Date:</strong> {new Date(eventDetails.date).toLocaleDateString()}</p> {/* Added className */}
-          <p className={styles.infoItem}><strong>Time:</strong> {eventDetails.time}</p> {/* Added className */}
-          <p className={styles.infoItem}><strong>Location:</strong> {eventDetails.location}</p> {/* Added className */}
-          <p className={styles.infoItem}><strong>Organizer:</strong> {eventDetails.organizer}</p> {/* Added className */}
-          <p className={styles.infoItem}><strong>Price:</strong> ${eventDetails.ticketPrice}</p> {/* Added className */}
-          <p className={styles.infoItem}><strong>Category:</strong> {eventDetails.category}</p> {/* Added className */}
+        <div className="event-info">
+          <p className="info-item"><strong>Date:</strong> {new Date(eventDetails.date).toLocaleDateString()}</p>
+          <p className="info-item"><strong>Time:</strong> {eventDetails.time}</p>
+          <p className="info-item"><strong>Location:</strong> {eventDetails.location}</p>
+          <p className="info-item"><strong>Organizer:</strong> {eventDetails.organizer}</p>
+          <p className="info-item"><strong>Price:</strong> ${eventDetails.ticketPrice}</p>
+          <p className="info-item"><strong>Category:</strong> {eventDetails.category}</p>
         </div>
-        <div className={styles.description}> {/* Added className */}
+        <div className="description">
           <p>{eventDetails.description}</p>
         </div>
         {/* Add more details here based on your design */}

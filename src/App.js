@@ -5,21 +5,22 @@ import Register from './components/Register';
 import Login from './components/Login';
 import EventList from './components/EventList';
 import EventDetailsPage from './components/EventDetailsPage';
-import './components/Register.css'; // Try importing here
-import './components/Login.css';   // Try importing here
-import './components/EventList.css'; // Try importing here
-import './components/EventDetailsPage.css'; // Try importing here
+import './components/Register.css'; 
+import './components/Login.css';   
+import './components/EventList.css'; 
+import './components/EventDetailsPage.css'; 
+import './App.css'; 
 
 function App() {
   return (
     <Router>
-      <div>
+      <div className="app-container">
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/events" element={<EventList />} />
           <Route path="/events/:eventId" element={<EventDetailsPage />} />
-          <Route path="/" element={<div>Welcome! <Link to="/events">View Events</Link> | <Link to="/login">Login</Link> | <Link to="/register">Register</Link></div>} />
+          <Route path="/" element={<div className="welcome-container">Welcome! <Link to="/events">View Events</Link> | <Link to="/login">Login</Link> | <Link to="/register">Register</Link></div>} />
         </Routes>
       </div>
     </Router>

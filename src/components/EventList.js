@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import styles from './EventList.css'; // Changed import
+import './EventList.css'; // Direct import
 
 function EventList() {
   const [events, setEvents] = useState([]);
@@ -30,20 +30,20 @@ function EventList() {
   }
 
   return (
-    <div className={styles.eventListContainer}> {/* Added className */}
+    <div className="event-list-container">
       <h2>Upcoming Events</h2>
-      <ul className={styles.eventList}> {/* Added className */}
+      <ul className="event-list">
         {events.map(event => (
-          <li key={event._id} className={styles.eventItem}> {/* Added className */}
+          <li key={event._id} className="event-item">
             <h3>
-              <Link to={`/events/${event._id}`} className={styles.eventTitleLink}> {/* Added className */}
+              <Link to={`/events/${event._id}`} className="event-title-link">
                 {event.title}
               </Link>
             </h3>
-            <p className={styles.eventDate}>Date: {new Date(event.date).toLocaleDateString()}</p> {/* Added className */}
-            <p className={styles.eventLocation}>Location: {event.location}</p> {/* Added className */}
-            <p className={styles.eventCategory}>Category: {event.category}</p> {/* Added className */}
-            <Link to={`/events/${event._id}`} className={styles.viewDetailsButton}> {/* Added className */}
+            <p className="event-date">Date: {new Date(event.date).toLocaleDateString()}</p>
+            <p className="event-location">Location: {event.location}</p>
+            <p className="event-category">Category: {event.category}</p>
+            <Link to={`/events/${event._id}`} className="view-details-button">
               View Details
             </Link>
           </li>

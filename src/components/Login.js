@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import styles from './Login.css'; // Changed import
+import './Login.css'; // Direct import
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -23,33 +23,33 @@ function Login() {
   };
 
   return (
-    <div className={styles.loginContainer}> {/* Added className */}
+    <div className="login-container">
       <h2>Login</h2>
       {message && <p>{message}</p>}
-      <form onSubmit={handleSubmit} className={styles.loginForm}> {/* Added className */}
-        <div className={styles.formGroup}> {/* Added className */}
+      <form onSubmit={handleSubmit} className="login-form">
+        <div className="form-group">
           <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className={styles.inputField} // Added className
+            className="input-field"
             required
           />
         </div>
-        <div className={styles.formGroup}> {/* Added className */}
+        <div className="form-group">
           <label htmlFor="password">Password:</label>
           <input
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className={styles.inputField} // Added className
+            className="input-field"
             required
           />
         </div>
-        <button type="submit" className={styles.loginButton}>Login</button> {/* Added className */}
+        <button type="submit" className="login-button">Login</button>
       </form>
     </div>
   );
